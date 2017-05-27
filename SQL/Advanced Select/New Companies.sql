@@ -1,0 +1,2 @@
+/* MySQL */ 
+select C.company_code,C.founder,count(distinct L.lead_manager_code),count(distinct S.senior_manager_code),count(distinct M.manager_code),count(distinct E.employee_code) from Company C join Lead_Manager L on C.company_code=L.company_code join Senior_Manager S on L.lead_manager_code=S.lead_manager_code join Manager M on S.senior_manager_code=M.senior_manager_code join Employee E on M.manager_code =E.manager_code group by C.company_code,C.founder;
